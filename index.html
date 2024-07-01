@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays ; For Loops ; Nested Loops</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="blue"></div>
+    <div class="heading">
+      <div class="space"></div>
+      <div class="head">
+        <h1>
+          Arrays: Removing, inserting, and extracting elements ;<br />
+          for loops ;<br />for loops: Flags, Booleans, array length, and loopus
+          interruptus; <br />for loops nested
+        </h1>
+      </div>
+      <div class="space"></div>
+    </div>
+    <div class="blue-buttom">
+      <div class="para">
+        Assinment # 17-20 <br />
+        JAVASCRIPT
+      </div>
+    </div>
+    <div class="chap">
+      <h1><br />C h a p t e r s</h1>
+      <br />
+    </div>
+
+    <div class="moiz">
+      <h1>-: Arrays: Removing, inserting, and extracting elements :-</h1>
+      <p class="ali">
+        Use the shift method to remove an element from the beginning of an
+        array. <br />
+        Suppose you have an array, pets, whose elements are "dog", "cat", and
+        "bird". The <br />
+        following removes the first element, "dog", leaving you with a
+        two-element array. <br />
+        pets.shift(); <br />
+        To add one or more elements to the beginning of an array, use the
+        unshift method. <br />
+        The following code adds two elements to the beginning of the array.
+        <br />
+        pets.unshift("fish", "ferret"); <br />
+        Use the splice method to insert one or more elements anywhere in an
+        array, while <br />
+        optionally removing one or more elements that come after it. Suppose you
+        have an array with <br />
+        <br />
+        the elements "dog", "cat", "fly", "bug", "ox". The following code adds
+        "pig", "duck", and "emu" <br />
+        after "cat" while removing "fly" and "bug". <br />
+        pets.splice(2, 2, "pig", "duck", "emu"); <br />
+        The first digit inside the parentheses is the index of the position
+        where you want to start <br />
+        adding if you're adding and deleting if you're deleting. The second
+        digit is the number of <br />
+        existing elements to remove, starting with the first element that comes
+        after the element(s) that <br />
+        you're splicing in. The code above leaves you with an array consisting
+        of "dog", "cat", "pig", <br />
+        "duck", "emu", and "ox". <br />
+        You could make additions without removing any elements. The following
+        code adds <br />
+        "pig", "duck", and "emu" without removing any elements. <br />
+        pets.splice(2, 0, "pig", "duck", "emu"); <br />
+        You can also remove elements without adding any. If you start with the
+        elements "dog", <br />
+        "cat", "fly", "bug", and "ox", the following code removes two elements
+        starting at index 3 <br />
+        —"bug" and "ox". This leaves "dog", "cat", and "fly". <br />
+        pets.splice(2, 2); <br />
+        Use the slice method to copy one or more consecutive elements in any
+        position and put <br />
+        them into a new array. If you start with an array, pets, consisting of
+        "dog", "cat", "fly", "bug", <br />
+        and "ox", the following code copies "fly" and "bug" to the new array
+        noPets and leaves the <br />
+        original array, pets, unchanged. <br />
+        var noPets = pets.slice(2, 4); <br />
+        The first digit inside the parentheses is the index of the first element
+        to be copied. The <br />
+        second digit is the index of the element after the last element to be
+        copied. <br />
+        Two things could trip you up here: <br />
+        Since the first index number inside the parentheses specifies the first
+        element to be <br />
+        copied, you might think the second index number specifies the last
+        element to be copied. <br />
+        In fact, the second number specifies the index number of the element
+        after the last element <br />
+        to be copied. <br />
+        You must assign the sliced elements to an array. It could, of course, be
+        the same array <br />
+        from which you're doing the slicing. In that case, you'd be reducing the
+        original array to <br />
+        only the copied elements. <br />
+      </p>
+    </div>
+    <div class="moiz">
+      <h1>-: for loops :-</h1>
+      <p class="ali">
+        You know the song "99 Bottles of Beer on the Wall"? If you're teaching
+        someone the song, <br />
+        <br />
+        you could give them these instructions: <br />
+        1. Sing "99 bottles of beer on the wall, 99 bottles of beer." <br />
+        2. Sing "Take one down and pass it around, 98 bottles of beer on the
+        wall." <br />
+        3. Sing "98 bottles of beer on the wall, 98 bottles of beer." <br />
+        4. Sing "Take one down and pass it around, 97 bottles of beer on the
+        wall." <br />
+        5. Sing "97 bottles of beer on the wall, 97 bottles of beer." <br />
+        6. Sing "Take one down and pass it around, 96 bottles of beer on the
+        wall." <br />
+        ...and so on, for 192 more lines of instructions. <br />
+        But that isn't how you'd give the instructions, is it? You'd be more
+        concise. You'd say <br />
+        something like this: <br />
+        Sing "99 bottles of beer on the wall, 99 bottles of beer. Take one down
+        and pass it <br />
+        around, 98 bottles of beer on the wall." Repeat this, subtracting 1 each
+        time, until there are no <br />
+        more bottles of beer on the wall. <br />
+        In coding, you run into the bottles-of-beer situation quite often. For
+        example, suppose <br />
+        you've offered to check if the user's city is one of the 5 cleanest in
+        the U.S. The user has <br />
+        entered her city, and you've assigned her city to the variable
+        cityToCheck. <br />
+        You've already assigned the list of the 5 cleanest cities to the array
+        cleanestCities. <br />
+        var cleanestCities = ["Cheyenne", "Santa Fe", "Tucson", "Great Falls",
+        "Honolulu"]; <br />
+        Now you go through the array to see if there's a match with the user's
+        city. If there is, you <br />
+        display an alert telling the user her city is one of the cleanest. If
+        there's no match, you display <br />
+        an alert telling the user her city isn't on the list. <br />
+        1 if (cityToCheck === cleanestCities[0]) { <br />
+        2 alert("It's one of the cleanest cities"); <br />
+        3 } <br />
+        4 else if (cityToCheck === cleanestCities[1]) { <br />
+        5 alert("It's one of the cleanest cities"); <br />
+        6 } <br />
+        7 else if (cityToCheck === cleanestCities[2]) { <br />
+        8 alert("It's one of the cleanest cities"); <br />
+        9 } <br />
+        10 else if (cityToCheck === cleanestCities[3]) { <br />
+        11 alert("It's one of the cleanest cities"); <br />
+        12 } <br />
+        13 else if (cityToCheck === cleanestCities[4]) { <br />
+        14 alert("It's one of the cleanest cities"); <br />
+        15 } <br />
+        60 <br />
+        16 else { <br />
+        17 alert("It's not on the list"); <br />
+        18 } <br />
+        Conveniently, JavaScript provides a more concise coding approach. Here's
+        a for loop <br />
+        that accomplishes most of what the verbose code in the example above
+        accomplishes. <br />
+        1 for (var i = 0; i <= 4; i++) { <br />
+        2 if (cityToCheck === cleanestCities[i]) { <br />
+        3 alert("It's one of the cleanest cities"); <br />
+        4 } <br />
+        5 } <br />
+        Let me break down the first line for you. <br />
+        The first line begins with the keyword for. <br />
+        The three specifications that define the loop are inside the
+        parentheses. <br />
+        1. A variable that counts iterations and also serves as the changing
+        array index is declared <br />
+        and set to a starting value, in this case 0. <br />
+        2. The limit on the loop is defined. In this case, the loop is to keep
+        running as long as the <br />
+        counter doesn't exceed 4. Since the counter, in this case, is starting
+        at 0, the loop will run <br />
+        5 times. <br />
+        3. What happens to the counter at the end of every loop. In this case,
+        the counter is <br />
+        incremented each time. <br />
+        The three specifications inside the parentheses are always in the same
+        order: <br />
+        1. What to call the counter (usually i) and what number to start it at
+        (typically 0) <br />
+        2. How many loops to run (in this case, the number of elements in the
+        array) <br />
+        3. How to change the counter after each iteration (typically to add 1
+        each time through) <br />
+        Things to keep in mind: <br />
+        In the example, the counter, i, serves two purposes. It keeps track of
+        the number of <br />
+        iterations so looping can halt at the right point. And it serves as the
+        index number of the <br />
+        array, allowing the code to progress through all the elements of the
+        array as the counter <br />
+        increments with each iteration. <br />
+        There is nothing sacred about using i as the counter. You can use any
+        legal variable <br />
+        name. But coders usually use i because it keeps the first line compact,
+        and because <br />
+        coders understand that i stands for "iteration." <br />
+        In the example, the initial count is 0, the index number of the first
+        element of the array.But <br />
+        it could be any number, depending on your needs. <br />
+        In the example, the counter increments with each iteration. But,
+        depending on your needs, <br />
+        you can decrement it, increase it by 2, or change it in some other way
+        each time through. <br />
+        In the example, I specify that the loop is to run as long as i <= 4.
+        Alternatively, I could <br />
+        have specified i < 5. Either way, since the counter starts at 0, the
+        loop runs 5 times. <br />
+      </p>
+    </div>
+    <div class="moiz">
+      <h1>
+        -: for loops: Flags, Booleans, array length, and loopus interruptus :-
+      </h1>
+      <p class="ali">
+        There are several problems with the for loop example I gave you in the
+        last chapter. The <br />
+        first problem is a potential communication problem. If a match between
+        the user's city and the <br />
+        list of cleanest cities is found, a confirming alert displays. But if
+        there is no match, nothing <br />
+        happens. The user is left in the dark. If no match is found, we need to
+        display an alert saying <br />
+        so. But how do we do that? <br />
+        We do it with a flag. A flag is just a variable that starts out with a
+        default value that you <br />
+        give it, and then is switched to a different value under certain
+        conditions. In our example, let's <br />
+        say this is the flag. <br />
+        var matchFound = "no"; <br />
+        If a match is found, the value of the flag is changed. At the end, if
+        the flag hasn't been <br />
+        changed—if it still has the original value of "no"—it means no match was
+        found, and so we <br />
+        display an alert saying the city isn't on the list. <br />
+        1 var matchFound = "no"; <br />
+        2 for (var i = 0; i <= 4; i++); <br />
+        3 if (cityToCheck === cleanestCities[i]) { <br />
+        4 matchFound = "yes"; <br />
+        5 alert("It's one of the cleanest cities"); <br />
+        6 } <br />
+        7 } <br />
+        8 if (matchFound === "no") { <br />
+        9 alert("It's not on the list"); <br />
+        10 } <br />
+        This works, but rather than assigning the strings "no" and "yes" to the
+        switch, it's <br />
+        conventional to use the Boolean values false and true. <br />
+        1 var matchFound = false; <br />
+        2 for (var i = 0; i <= 4; i++); <br />
+        3 if (cityToCheck === cleanestCities[i]) { <br />
+        4 matchFound = true; <br />
+        5 alert("It's one of the cleanest cities"); <br />
+        6 } <br />
+        7 } <br />
+        8 if (matchFound === false) { <br />
+        9 alert("It's not on the list"); <br />
+        10 } <br />
+        There are only two Booleans, true and false. Note that they aren't
+        enclosed in quotes. <br />
+        The next problem with our example is that it potentially wastes
+        computing cycles. <br />
+        Suppose on the second loop a match is found and the alert displays. The
+        way the loop is <br />
+        coded, the loop goes on looping all the way to the end. This is
+        unnecessary, since we got our <br />
+        answer in the second loop. The problem is solved with the keyword break.
+        <br />
+        1 var matchFound = false; <br />
+        2 for (var i = 0; i <= 4; i++); <br />
+        3 if (cityToCheck === cleanestCities[i]) { <br />
+        4 matchFound = true; <br />
+        5 alert("It's one of the cleanest cities"); <br />
+        6 break; <br />
+        7 } <br />
+        8 } <br />
+        9 if (matchFound === false) { <br />
+        10 alert("It's not on the list"); <br />
+        11 } <br />
+        The last problem: In the example, I assume that the number of elements
+        in the array is <br />
+        known. But what if it isn't? JavaScript has a way of finding out. The
+        following code assigns the <br />
+        number of elements in the array cleanestCities to the variable
+        numElements. <br />
+        var numElements = cleanestCities.length; <br />
+        Now we can limit the number of loops to the count that JavaScript comes
+        up with. <br />
+        1 var numElements = cleanestCities.length; <br />
+        2 var matchFound = false; <br />
+        3 for (var i = 0; i < numElements; i++); <br />
+        4 if (cityToCheck === cleanestCities[i]) { <br />
+        5 matchFound = true; <br />
+        6 alert("It's one of the cleanest cities"); <br />
+        7 break; <br />
+        8 } <br />
+        9 } <br />
+        10 if (matchFound === false) { <br />
+        11 alert("It's not on the list"); <br />
+        12 } <br />
+        Now the loop keeps going as long as i is less than the number of
+        elements. (Since the <br />
+        length number is 1-based and the i number is 0-based, we need to stop 1
+        short of the length.) <br />
+      </p>
+    </div>
+    <div class="moiz">
+      <h1>-: for loops nested :-</h1>
+      <p class="ali">
+        Atlantic Records has hired you and me to generate a list of names for
+        future rap stars. To <br />
+        make things easy, we'll start by making separate lists of some first
+        names and last names. <br />
+        By combining each of the first names with each of the last names, we can
+        generate 20 <br />
+        different full names for rappers. <br />
+        Starting with "BlueRay," we go through the list of last names,
+        generating... <br />
+        BlueRay Zzz <br />
+        BlueRay Burp <br />
+        BlueRay Dogbone <br />
+        BlueRay Droop <br />
+        We move to the next first name, "Upchuck." Again, we go through the list
+        of last names, <br />
+        generating... <br />
+        Upchuck Zzz <br />
+        Upchuck Burp <br />
+        Upchuck Dogbone <br />
+        Upchuck Droop <br />
+        And so on, combining each first name with each last name. <br />
+        But look, why not have JavaScript do the repetitive work? We'll use
+        nested for <br />
+        statements. <br />
+        1 var firstNames = ["BlueRay ", "Upchuck ", "Lojack ", "Gizmo ", "Do-Rag
+        "]; <br />
+        2 var lastNames = ["Zzz", "Burp", "Dogbone", "Droop"]; <br />
+        3 var fullNames = []; <br />
+        5 for (var i = 0; i < firstNames.length; i++) { <br />
+        6 for (var j = 0; j < lastNames.length; j++) { <br />
+        7 fullNames.push(firstNames[i] + lastNames[j]); <br />
+        67 <br />
+        9 } <br />
+        10 } <br />
+        Things to think about: <br />
+        The inner loop runs a complete cycle of iterations on each iteration of
+        the outer loop. If <br />
+        the outer loop counter is i and the inner loop counter is j, j will loop
+        through 0, 1, 2, and <br />
+        all the way to the end while i is on 0. Then i will increment to 1, and
+        j will loop through <br />
+        all of its values again. The outer loop is the minute hand of a clock.
+        The inner loop is the <br />
+        second hand. <br />
+        You can have as many levels of nesting as you like. <br />
+        A nested loop is indented 2 spaces beyond its outer loop. <br />
+      </p>
+    </div>
+    <div class="moiz">
+      <h1>Assignment</h1>
+      <p class="ali">
+        <object
+          data="./chapters17-20.pdf"
+          type="application/pdf"
+          width="100%"
+          height="500px"
+        >
+          <p>
+            Unable to display PDF file.
+            <a href="./chapters17-20.pdf">Download</a>
+            instead.
+          </p>
+        </object>
+      </p>
+    </div>
+    <div class="chap">
+      <h1><br />Perform The Assignment</h1>
+      <br />
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
